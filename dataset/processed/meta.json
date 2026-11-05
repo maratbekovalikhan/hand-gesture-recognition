@@ -1,0 +1,79 @@
+{
+  "roi_backend": "mediapipe",
+  "median_box_frac": 0.2086,
+  "frame_step": 6,
+  "dedup_thresh": 2.0,
+  "val_fraction": 0.2,
+  "val_gap": 10,
+  "img_size": 224,
+  "roi_margin": 0.2,
+  "counts": {
+    "test": {
+      "peace": 303,
+      "stop": 303,
+      "thumb": 306
+    },
+    "train": {
+      "peace": 473,
+      "stop": 455,
+      "thumb": 420
+    },
+    "val": {
+      "peace": 123,
+      "stop": 119,
+      "thumb": 110
+    }
+  },
+  "roi_found_rate": {
+    "test": 1.0,
+    "train": 1.0,
+    "val": 1.0
+  },
+  "videos": {
+    "peace_01": {
+      "total_frames": 2083,
+      "candidates": 325,
+      "saved": 315
+    },
+    "peace_02": {
+      "total_frames": 1818,
+      "candidates": 291,
+      "saved": 281
+    },
+    "stop_01": {
+      "total_frames": 1784,
+      "candidates": 290,
+      "saved": 280
+    },
+    "stop_02": {
+      "total_frames": 1909,
+      "candidates": 304,
+      "saved": 294
+    },
+    "thumb_01": {
+      "total_frames": 1820,
+      "candidates": 281,
+      "saved": 271
+    },
+    "thumb_02": {
+      "total_frames": 1761,
+      "candidates": 269,
+      "saved": 259
+    },
+    "peace_03": {
+      "total_frames": 1825,
+      "candidates": 303,
+      "saved": 303
+    },
+    "stop_03": {
+      "total_frames": 1815,
+      "candidates": 303,
+      "saved": 303
+    },
+    "thumb_03": {
+      "total_frames": 1852,
+      "candidates": 306,
+      "saved": 306
+    }
+  }
+}

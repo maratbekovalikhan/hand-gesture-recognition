@@ -1,0 +1,476 @@
+{
+  "cnn_baseline": {
+    "name": "cnn_baseline",
+    "pretty": "Custom CNN (baseline)",
+    "config": {
+      "arch": "cnn",
+      "input": "full",
+      "aug": true,
+      "enhance": false,
+      "epochs": 25,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 0.33223684210526316,
+    "macro_precision": 0.11074561403508772,
+    "macro_recall": 0.3333333333333333,
+    "macro_f1": 0.16625514403292183,
+    "per_class": {
+      "peace": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 306
+      },
+      "stop": {
+        "precision": 0.33223684210526316,
+        "recall": 1.0,
+        "f1": 0.49876543209876545,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        303
+      ],
+      [
+        0,
+        0,
+        306
+      ],
+      [
+        0,
+        0,
+        303
+      ]
+    ],
+    "params": 583267,
+    "best_epoch": 12,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "latency_ms_total_mean": 26.54408395756036,
+    "latency_ms_total_std": 2.5575267905323673,
+    "latency_ms_model_mean": 10.372820329420003,
+    "latency_ms_roi_mean": 0.0,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "mobilenetv2": {
+    "name": "mobilenetv2",
+    "pretty": "MobileNetV2 (full frame)",
+    "config": {
+      "arch": "mobilenet",
+      "input": "full",
+      "aug": true,
+      "enhance": false,
+      "epochs": 12,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 0.9725877192982456,
+    "macro_precision": 0.9748237663645519,
+    "macro_recall": 0.9724972497249725,
+    "macro_f1": 0.9725747574284579,
+    "per_class": {
+      "peace": {
+        "precision": 1.0,
+        "recall": 0.9174917491749175,
+        "f1": 0.9569707401032702,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 0.9244712990936556,
+        "recall": 1.0,
+        "f1": 0.9607535321821036,
+        "support": 306
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        278,
+        25,
+        0
+      ],
+      [
+        0,
+        306,
+        0
+      ],
+      [
+        0,
+        0,
+        303
+      ]
+    ],
+    "params": 2227715,
+    "best_epoch": 11,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "latency_ms_total_mean": 25.09877254404793,
+    "latency_ms_total_std": 1.3658284497504272,
+    "latency_ms_model_mean": 7.963273801890734,
+    "latency_ms_roi_mean": 0.0,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "improved_model": {
+    "name": "improved_model",
+    "pretty": "Improved: Hand-ROI + MobileNetV2",
+    "config": {
+      "arch": "mobilenet",
+      "input": "roi",
+      "aug": true,
+      "enhance": false,
+      "epochs": 12,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "peace": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 306
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        303,
+        0,
+        0
+      ],
+      [
+        0,
+        306,
+        0
+      ],
+      [
+        0,
+        0,
+        303
+      ]
+    ],
+    "params": 2227715,
+    "best_epoch": 12,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "test_hand_not_found": 0,
+    "latency_ms_total_mean": 43.70588275736996,
+    "latency_ms_total_std": 4.535492786494419,
+    "latency_ms_model_mean": 8.067793500127404,
+    "latency_ms_roi_mean": 22.8415213716549,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "ablation_improved_noaug": {
+    "name": "ablation_improved_noaug",
+    "pretty": "Ablation: Improved, no augmentation",
+    "config": {
+      "arch": "mobilenet",
+      "input": "roi",
+      "aug": false,
+      "enhance": false,
+      "epochs": 12,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 0.9769736842105263,
+    "macro_precision": 0.9785932721712539,
+    "macro_recall": 0.9768976897689768,
+    "macro_f1": 0.9770790917578981,
+    "per_class": {
+      "peace": {
+        "precision": 1.0,
+        "recall": 0.9900990099009901,
+        "f1": 0.9950248756218906,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 0.9357798165137615,
+        "recall": 1.0,
+        "f1": 0.966824644549763,
+        "support": 306
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 0.9405940594059405,
+        "f1": 0.9693877551020408,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        300,
+        3,
+        0
+      ],
+      [
+        0,
+        306,
+        0
+      ],
+      [
+        0,
+        18,
+        285
+      ]
+    ],
+    "params": 2227715,
+    "best_epoch": 11,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "test_hand_not_found": 0,
+    "latency_ms_total_mean": 42.953727387690115,
+    "latency_ms_total_std": 4.897215136947853,
+    "latency_ms_model_mean": 7.823736872524023,
+    "latency_ms_roi_mean": 22.609841098060965,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "ablation_improved_clahe": {
+    "name": "ablation_improved_clahe",
+    "pretty": "Ablation: Improved + CLAHE",
+    "config": {
+      "arch": "mobilenet",
+      "input": "roi",
+      "aug": true,
+      "enhance": true,
+      "epochs": 12,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 0.9989035087719298,
+    "macro_precision": 0.998914223669924,
+    "macro_recall": 0.9988998899889988,
+    "macro_f1": 0.9989052620225688,
+    "per_class": {
+      "peace": {
+        "precision": 1.0,
+        "recall": 0.9966996699669967,
+        "f1": 0.9983471074380166,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 0.996742671009772,
+        "recall": 1.0,
+        "f1": 0.99836867862969,
+        "support": 306
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        302,
+        1,
+        0
+      ],
+      [
+        0,
+        306,
+        0
+      ],
+      [
+        0,
+        0,
+        303
+      ]
+    ],
+    "params": 2227715,
+    "best_epoch": 12,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "test_hand_not_found": 0,
+    "latency_ms_total_mean": 44.16956191292099,
+    "latency_ms_total_std": 5.056061325956001,
+    "latency_ms_model_mean": 7.763783340591805,
+    "latency_ms_roi_mean": 23.017003558093815,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "ablation_cnn_roi": {
+    "name": "ablation_cnn_roi",
+    "pretty": "Ablation: CNN on Hand-ROI",
+    "config": {
+      "arch": "cnn",
+      "input": "roi",
+      "aug": true,
+      "enhance": false,
+      "epochs": 25,
+      "lr": 0.001
+    },
+    "n_test": 912,
+    "accuracy": 0.36622807017543857,
+    "macro_precision": 0.44871794871794873,
+    "macro_recall": 0.3641364136413641,
+    "macro_f1": 0.22782333477197525,
+    "per_class": {
+      "peace": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 303
+      },
+      "thumb": {
+        "precision": 0.34615384615384615,
+        "recall": 1.0,
+        "f1": 0.5142857142857142,
+        "support": 306
+      },
+      "stop": {
+        "precision": 1.0,
+        "recall": 0.0924092409240924,
+        "f1": 0.1691842900302115,
+        "support": 303
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        303,
+        0
+      ],
+      [
+        0,
+        306,
+        0
+      ],
+      [
+        0,
+        275,
+        28
+      ]
+    ],
+    "params": 583267,
+    "best_epoch": 17,
+    "device": "mps",
+    "roi_backend": "mediapipe",
+    "test_hand_not_found": 0,
+    "latency_ms_total_mean": 43.75107198596067,
+    "latency_ms_total_std": 5.142263901497839,
+    "latency_ms_model_mean": 10.028402356796764,
+    "latency_ms_roi_mean": 21.578297013599826,
+    "latency_n": 70,
+    "latency_input": "raw 720x1280 video frames"
+  },
+  "_meta": {
+    "python": "3.11.18",
+    "torch": "2.15.0",
+    "platform": "macOS-15.4.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "device": "mps",
+    "dataset": {
+      "roi_backend": "mediapipe",
+      "median_box_frac": 0.2086,
+      "frame_step": 6,
+      "dedup_thresh": 2.0,
+      "val_fraction": 0.2,
+      "val_gap": 10,
+      "img_size": 224,
+      "roi_margin": 0.2,
+      "counts": {
+        "test": {
+          "peace": 303,
+          "stop": 303,
+          "thumb": 306
+        },
+        "train": {
+          "peace": 473,
+          "stop": 455,
+          "thumb": 420
+        },
+        "val": {
+          "peace": 123,
+          "stop": 119,
+          "thumb": 110
+        }
+      },
+      "roi_found_rate": {
+        "test": 1.0,
+        "train": 1.0,
+        "val": 1.0
+      },
+      "videos": {
+        "peace_01": {
+          "total_frames": 2083,
+          "candidates": 325,
+          "saved": 315
+        },
+        "peace_02": {
+          "total_frames": 1818,
+          "candidates": 291,
+          "saved": 281
+        },
+        "stop_01": {
+          "total_frames": 1784,
+          "candidates": 290,
+          "saved": 280
+        },
+        "stop_02": {
+          "total_frames": 1909,
+          "candidates": 304,
+          "saved": 294
+        },
+        "thumb_01": {
+          "total_frames": 1820,
+          "candidates": 281,
+          "saved": 271
+        },
+        "thumb_02": {
+          "total_frames": 1761,
+          "candidates": 269,
+          "saved": 259
+        },
+        "peace_03": {
+          "total_frames": 1825,
+          "candidates": 303,
+          "saved": 303
+        },
+        "stop_03": {
+          "total_frames": 1815,
+          "candidates": 303,
+          "saved": 303
+        },
+        "thumb_03": {
+          "total_frames": 1852,
+          "candidates": 306,
+          "saved": 306
+        }
+      }
+    }
+  }
+}
